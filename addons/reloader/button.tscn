@@ -1,0 +1,42 @@
+[gd_scene load_steps=2 format=3 uid="uid://br27arvexmgmr"]
+
+[ext_resource type="Script" path="res://addons/reloader/reload.gd" id="1_cjxlj"]
+
+[node name="Reloader" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cjxlj")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 22.0
+offset_top = 17.0
+offset_right = 92.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 45
+text = "🔄"
+icon_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 18.0
+offset_right = 378.0
+offset_bottom = 54.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 59.0
+offset_right = 377.0
+offset_bottom = 90.0
+
+[node name="delete_time" type="Timer" parent="Label"]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Label/delete_time" to="." method="_on_delete_time_timeout"]
